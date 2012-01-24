@@ -32,6 +32,7 @@ namespace ActivityStreamSharp
         /// <remarks>
         /// A complex type assigned to this property will be JSON serialized.
         /// </remarks>
+        [JsonConverter(typeof(ObjectTypeConverter))]
         public dynamic Content { get; set; }
 
         /// <summary>
@@ -45,6 +46,7 @@ namespace ActivityStreamSharp
         /// <remarks>
         /// Use a class from ObjectTypes.
         /// </remarks>
+        [JsonConverter(typeof(ObjectTypeConverter))]
         public dynamic Object { get; set; }
 
         /// <summary>
@@ -61,6 +63,7 @@ namespace ActivityStreamSharp
         /// <remarks>
         /// Use a class from ObjectTypes.
         /// </remarks>
+        [JsonConverter(typeof(ObjectTypeConverter))]
         public dynamic Target { get; set; }
 
         /// <summary>

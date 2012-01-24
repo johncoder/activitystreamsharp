@@ -29,52 +29,8 @@ namespace ActivityStreamSharp
 
         public object this[string index]
         {
-            get
-            {
-                if (Dictionary.ContainsKey(index))
-                    return Dictionary[index];
-
-                var entry = Dictionary.Where(k => k.Key.Equals(index, StringComparison.InvariantCultureIgnoreCase));
-                
-                if(entry.Any())
-                    return entry.FirstOrDefault().Value;
-
-                var member = GetType().GetProperties().Where(p => p.Name.Equals(index, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
-
-                if (member != null)
-                {
-                    return member.GetValue(this, null);
-                }
-
-                return null;
-            }
-            set
-            {
-                var member = GetType().GetProperties().Where(p => p.Name.Equals(index, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
-
-                if (member != null)
-                {
-                    member.SetValue(this, value, null);
-                    return;
-                }
-
-                var entry = Dictionary.Where(k => k.Key.Equals(index, StringComparison.InvariantCultureIgnoreCase));
-
-                if (entry.Any())
-                {
-                    Dictionary[entry.FirstOrDefault().Key] = value;
-                    return;
-                }
-
-                if (Dictionary.ContainsKey(index))
-                {
-                    Dictionary[index] = value;
-                }
-                else
-                {
-                    Dictionary.Add(index, value);
-                }
-            }
+            get { return GetValue(index); }
+            set { SetValue(index, value); }
         }
 
         public ForgivingExpandoObject()
@@ -90,12 +46,12 @@ namespace ActivityStreamSharp
 
         public void Add(string key, object value)
         {
-            Dictionary.Add(key, value);
+            SetValue(key, value);
         }
 
         public void Add(KeyValuePair<string, object> item)
         {
-            Dictionary.Add(item);
+            SetValue(item.Key, item.Value);
         }
 
         public void Clear()
@@ -105,26 +61,31 @@ namespace ActivityStreamSharp
 
         public bool Contains(KeyValuePair<string, object> item)
         {
+            // TODO: Include fields and properties.
             return Dictionary.Contains(item);
         }
 
         public bool ContainsKey(string key)
         {
+            // TODO: Include fields and properties.
             return Dictionary.ContainsKey(key);
         }
 
         public void CopyTo(KeyValuePair<string, object>[] array, int arrayIndex)
         {
+            // NOTE: What does this mean to a dynamic object with its own defined properties?
             Dictionary.CopyTo(array, arrayIndex);
         }
 
         public IEnumerable<string> GetDynamicMemberNames()
         {
+            // NOTE: Should this also include property and field names?
             return Dictionary.Keys;
         }
 
         public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
         {
+            // NOTE: Should this also include properties and fields?
             return Dictionary.GetEnumerator();
         }
 
@@ -135,76 +96,29 @@ namespace ActivityStreamSharp
 
         public bool Remove(string key)
         {
-            return Dictionary.Remove(key);
+            return Dictionary.ContainsKey(key) && Dictionary.Remove(key);
         }
 
         public bool Remove(KeyValuePair<string, object> item)
         {
-            return Dictionary.Remove(item);
+            return Dictionary.ContainsKey(item.Key) && Dictionary.Remove(item);
         }
 
         public bool TrySetMember(SetMemberBinder binder, object value)
         {
-            var existingProperty =
-                GetType().GetProperties().FirstOrDefault(
-                    p => p.Name.Equals(binder.Name, StringComparison.InvariantCultureIgnoreCase));
-
-            if (existingProperty != null)
-            {
-                existingProperty.SetValue(this, value, null);
-            }
-            else
-            {
-                Dictionary[binder.Name] = value;
-            }
-
+            SetValue(binder.Name, value);
             return true;
         }
 
         public bool TryGetValue(string key, out object value)
         {
-            var existingProperty =
-                GetType().GetProperties().FirstOrDefault(
-                    p => p.Name.Equals(key, StringComparison.InvariantCultureIgnoreCase));
-
-            if (existingProperty != null)
-            {
-                value = existingProperty.GetValue(this, null);
-                return true;
-            }
-            else
-            {
-                return Dictionary.TryGetValue(key, out value);
-            }
+            value = GetValue(key);
+            return true;
         }
 
         public bool TryGetMember(GetMemberBinder binder, out object result)
         {
-            var existingProperty =
-                GetType().GetProperties().FirstOrDefault(
-                    p => p.Name.Equals(binder.Name, StringComparison.InvariantCultureIgnoreCase));
-
-            if (existingProperty != null)
-            {
-                result = existingProperty.GetValue(this, null);
-                return true;
-            }
-
-            if (Dictionary.ContainsKey(binder.Name))
-            {
-                result = Dictionary[binder.Name];
-                return true;
-            }
-
-            if (binder.ReturnType.IsValueType)
-            {
-                result = Activator.CreateInstance(binder.ReturnType);
-            }
-            else
-            {
-                result = null;
-            }
-
+            result = GetValue(binder.Name);
             return true;
         }
 

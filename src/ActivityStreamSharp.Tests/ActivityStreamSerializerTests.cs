@@ -1,5 +1,4 @@
-﻿using System.Dynamic;
-using ActivityStreamSharp.ObjectTypes;
+﻿using ActivityStreamSharp.ObjectTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Should;
 
@@ -92,6 +91,26 @@ namespace ActivityStreamSharp.Tests
             resultActor.ShouldBeType<ForgivingExpandoObject>();
             string displayName = result.Actor.displayName;
             displayName.ShouldEqual("unknown");
+        }
+
+        [TestMethod]
+        public void ActivityStreamSerializer_should_serialize_activitystream_object()
+        {
+            var serializer = new ActivityStreamSerializer();
+            var activityStream = new ActivityStream {Items = new[] {new Activity(), new Activity()}, TotalItems = 2};
+            var result = serializer.SerializeStream(activityStream);
+
+            result.ShouldEqual("{\"totalItems\":2,\"items\":[{\"published\":\"0001-01-01T05:00:00Z\"},{\"published\":\"0001-01-01T05:00:00Z\"}]}");
+        }
+
+        [TestMethod]
+        public void ActivityStreamSerializer_should_deserialize_activitystream_object()
+        {
+            var serializer = new ActivityStreamSerializer();
+            var result = serializer.DeserializeStream("{\"totalItems\":2,\"items\":[{\"published\":\"0001-01-01T05:00:00Z\"},{\"published\":\"0001-01-01T05:00:00Z\"}]}");
+
+            result.TotalItems.ShouldEqual(2);
+            result.Items.Length.ShouldEqual(2);
         }
     }
 }
