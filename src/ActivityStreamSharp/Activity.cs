@@ -1,4 +1,6 @@
 ﻿using System;
+using ActivityStreamSharp.Converters;
+using Newtonsoft.Json;
 
 namespace ActivityStreamSharp
 {
@@ -21,6 +23,7 @@ namespace ActivityStreamSharp
         /// <remarks>
         /// Use a class from ObjectTypes.
         /// </remarks>
+        [JsonConverter(typeof(ObjectTypeConverter))]
         public dynamic Actor { get; set; }
 
         /// <summary>

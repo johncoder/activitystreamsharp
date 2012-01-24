@@ -10,18 +10,22 @@ namespace ActivityStreamSharp
     /// <summary>
     /// A dynamic object that gracefully handles missing members.
     /// </summary>
-    public class ForgivingExpandoObject : IDynamicMetaObjectProvider, IDictionary<string, object>
+    public class ForgivingExpandoObject : IDynamicMetaObjectProvider, IDictionary<string, object>, IForgivingExpandoObject
     {
-        public IDictionary<string, object> Dictionary { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        internal IDictionary<string, object> Dictionary { get; set; }
 
         /// <summary>
         /// The underlying ExpandoObject.
         /// </summary>
-        public dynamic Expando { get; set; }
-        public ICollection<string> Keys { get { return Dictionary.Keys; } }
-        public ICollection<object> Values { get { return Dictionary.Values; } }
-        public int Count { get { return Dictionary.Count; } }
-        public bool IsReadOnly { get { return Dictionary.IsReadOnly; } }
+        dynamic IForgivingExpandoObject.Expando { get; set; }
+
+        ICollection<string> IDictionary<string, object>.Keys { get { return Dictionary.Keys; } }
+        ICollection<object> IDictionary<string, object>.Values { get { return Dictionary.Values; } }
+        int ICollection<KeyValuePair<string, object>>.Count { get { return Dictionary.Count; } }
+        bool ICollection<KeyValuePair<string, object>>.IsReadOnly { get { return Dictionary.IsReadOnly; } }
 
         public object this[string index]
         {
@@ -80,8 +84,8 @@ namespace ActivityStreamSharp
 
         public ForgivingExpandoObject(ExpandoObject expandoObject)
         {
-            Expando = expandoObject;
-            Dictionary = Expando as IDictionary<string, object>;
+            ((IForgivingExpandoObject)this).Expando = expandoObject;
+            Dictionary = expandoObject;
         }
 
         public void Add(string key, object value)
@@ -159,7 +163,19 @@ namespace ActivityStreamSharp
 
         public bool TryGetValue(string key, out object value)
         {
-            return Dictionary.TryGetValue(key, out value);
+            var existingProperty =
+                GetType().GetProperties().FirstOrDefault(
+                    p => p.Name.Equals(key, StringComparison.InvariantCultureIgnoreCase));
+
+            if (existingProperty != null)
+            {
+                value = existingProperty.GetValue(this, null);
+                return true;
+            }
+            else
+            {
+                return Dictionary.TryGetValue(key, out value);
+            }
         }
 
         public bool TryGetMember(GetMemberBinder binder, out object result)
@@ -199,7 +215,30 @@ namespace ActivityStreamSharp
 
         internal object SetValue(string name, object value)
         {
-            Dictionary.Add(name, value);
+            var member = GetType().GetProperties().Where(p => p.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+
+            if (member != null)
+            {
+                member.SetValue(this, value, null);
+                return value;
+            }
+
+            var entry = Dictionary.Where(k => k.Key.Equals(name, StringComparison.InvariantCultureIgnoreCase));
+
+            if (entry.Any())
+            {
+                Dictionary[entry.FirstOrDefault().Key] = value;
+                return value;
+            }
+
+            if (Dictionary.ContainsKey(name))
+            {
+                Dictionary[name] = value;
+            }
+            else
+            {
+                Dictionary.Add(name, value);
+            }
             return value;
         }
 

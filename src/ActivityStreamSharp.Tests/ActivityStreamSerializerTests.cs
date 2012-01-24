@@ -89,7 +89,7 @@ namespace ActivityStreamSharp.Tests
             var result = serializer.Deserialize("{\"published\":\"0001-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"unknown\",\"displayName\":\"unknown\"}}");
 
             object resultActor = result.Actor;
-            resultActor.ShouldBeType<ExpandoObject>();
+            resultActor.ShouldBeType<ForgivingExpandoObject>();
             string displayName = result.Actor.displayName;
             displayName.ShouldEqual("unknown");
         }
