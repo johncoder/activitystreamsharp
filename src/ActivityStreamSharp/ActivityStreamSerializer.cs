@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Globalization;
+using ActivityStreamSharp.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -13,11 +14,11 @@ namespace ActivityStreamSharp
                 NullValueHandling = NullValueHandling.Ignore,
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 DefaultValueHandling = DefaultValueHandling.Ignore,
-                TypeNameHandling = TypeNameHandling.All,
                 Converters = new List<JsonConverter>
                 {
+                    new ObjectTypeConverter(),
                     new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AdjustToUniversal },
-                    new ExpandoObjectConverter()
+                    new ExpandoObjectConverter(),
                 }
             };
 

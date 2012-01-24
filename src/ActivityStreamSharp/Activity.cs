@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Dynamic;
-using Newtonsoft.Json;
 
 namespace ActivityStreamSharp
 {
@@ -23,17 +21,7 @@ namespace ActivityStreamSharp
         /// <remarks>
         /// Use a class from ObjectTypes.
         /// </remarks>
-        [JsonIgnore]
-        public dynamic Actor { get { return InnerActor; } }
-
-        /// <summary>
-        /// Describes the entity that performed the activity.
-        /// </summary>
-        /// <remarks>
-        /// Set this property.
-        /// </remarks>
-        [JsonProperty("Actor")]
-        public ExpandoObject InnerActor { get; set; }
+        public dynamic Actor { get; set; }
 
         /// <summary>
         /// Natural-language description of the activity encoded as a single JSON String containing HTML markup.
