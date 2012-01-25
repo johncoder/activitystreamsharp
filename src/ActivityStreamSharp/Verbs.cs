@@ -1,4 +1,4 @@
-﻿namespace ActivityStreamSharp.Verbs
+﻿namespace ActivityStreamSharp
 {
     /// <summary>
     /// A collection of verbs.
@@ -19,6 +19,7 @@
         public const string Like = "like";
         public const string MakeFriend = "make-friend";
         public const string Play = "play";
+        public const string Post = "post";
         public const string Receive = "receive";
         public const string Remove = "remove";
         public const string RemoveFriend = "remove-friend";

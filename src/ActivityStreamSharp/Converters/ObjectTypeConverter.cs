@@ -1,10 +1,10 @@
 using System;
+using System.Collections;
 using System.Linq;
 using ActivityStreamSharp.ObjectTypes;
 using ActivityStreamSharp.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 
 namespace ActivityStreamSharp.Converters
 {
@@ -14,7 +14,24 @@ namespace ActivityStreamSharp.Converters
         {
             var forgivingExpando = value as ForgivingExpandoObject;
 
-            if (forgivingExpando == null) return;
+            if (forgivingExpando == null)
+            {
+                if (value is IEnumerable && !(value is string) && !(value is ForgivingExpandoObject))
+                {
+                    writer.WriteStartArray();
+                    foreach (var item in value as IEnumerable)
+                    {
+                        WriteJson(writer, value, serializer);
+                        //serializer.Serialize(writer, item);
+                    }
+                    writer.WriteEndArray();
+                }
+                else
+                {
+                    serializer.Serialize(writer, value);
+                }
+                return;
+            }
 
             var members = value.GetType().GetFields()
                 .Where(f => !typeof(ForgivingExpandoObject).GetFields().Any(fp => fp.Name.Equals(f.Name, StringComparison.InvariantCultureIgnoreCase)));
@@ -40,7 +57,20 @@ namespace ActivityStreamSharp.Converters
                 {
                     writer.WritePropertyName(member.Name.ToCamelCase());
                 }
-                serializer.Serialize(writer, memberValue);
+
+                if (memberValue is IEnumerable && !(memberValue is string))
+                {
+                    writer.WriteStartArray();
+                    foreach (var item in memberValue as IEnumerable)
+                    {
+                        WriteJson(writer, item, serializer);
+                    }
+                    writer.WriteEndArray();
+                }
+                else
+                {
+                    serializer.Serialize(writer, memberValue);
+                }
             }
             foreach (var property in properties)
             {
@@ -49,13 +79,78 @@ namespace ActivityStreamSharp.Converters
                 if (propertyValue == null)
                     continue;
 
-                writer.WritePropertyName(property.Name.ToCamelCase());
-                serializer.Serialize(writer, propertyValue);
+                if (!(propertyValue is string) && !propertyValue.GetType().IsValueType)
+                {
+                    writer.WritePropertyName(property.Name.ToCamelCase());
+                    if (propertyValue is IEnumerable && !(propertyValue is ForgivingExpandoObject))
+                    {
+                        writer.WriteStartArray();
+                        foreach (var item in propertyValue as IEnumerable)
+                        {
+                            WriteJson(writer, item, serializer);
+                        }
+                        writer.WriteEndArray();
+                    }
+                    else
+                    {
+                        WriteJson(writer, propertyValue, serializer);
+                    }
+                }
+                else
+                {
+                    writer.WritePropertyName(property.Name.ToCamelCase());
+                    if (propertyValue is IEnumerable && !(propertyValue is string))
+                    {
+                        writer.WriteStartArray();
+                        foreach (var item in propertyValue as IEnumerable)
+                        {
+                            WriteJson(writer, item, serializer);
+                        }
+                        writer.WriteEndArray();
+                    }
+                    else
+                    {
+                        serializer.Serialize(writer, propertyValue);
+                    }
+                }
             }
             foreach (var item in forgivingExpando)
             {
-                writer.WritePropertyName(item.Key);
-                serializer.Serialize(writer, item.Value);
+                writer.WritePropertyName(item.Key.ToCamelCase());
+
+                if (!(item.Value is string) && !item.Value.GetType().IsValueType)
+                {
+                    if (item.Value is IEnumerable && !(item.Value is ForgivingExpandoObject))
+                    {
+                        writer.WriteStartArray();
+                        foreach (var itemItem in item.Value as IEnumerable)
+                        {
+                            WriteJson(writer, itemItem, serializer);
+                            //serializer.Serialize(writer, itemItem);
+                        }
+                        writer.WriteEndArray();
+                    }
+                    else
+                    {
+                        WriteJson(writer, item.Value, serializer);
+                    }
+                }
+                else
+                {
+                    if (item.Value is IEnumerable && !(item.Value is string))
+                    {
+                        writer.WriteStartArray();
+                        foreach (var itemItem in item.Value as IEnumerable)
+                        {
+                            WriteJson(writer, itemItem, serializer);
+                        }
+                        writer.WriteEndArray();
+                    }
+                    else
+                    {
+                        serializer.Serialize(writer, item.Value);
+                    }
+                }
             }
             writer.WriteEndObject();
         }

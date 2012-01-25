@@ -18,6 +18,7 @@ namespace ActivityStreamSharp
                 {
                     new ObjectTypeConverter(),
                     new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AdjustToUniversal },
+                    new StringEnumConverter(),
                     new ExpandoObjectConverter(),
                 }
             };

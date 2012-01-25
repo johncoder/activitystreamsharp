@@ -50,7 +50,6 @@
     <Compile Include="Converters\ObjectTypeConverter.cs" />
     <Compile Include="ForgivingExpando.cs" />
     <Compile Include="ForgivingExpandoDynamicMetaObject.cs" />
-    <Compile Include="IActivityStream.cs" />
     <Compile Include="IForgivingExpandoObject.cs" />
     <Compile Include="ObjectTypes\Address.cs" />
     <Compile Include="ObjectTypes\Article.cs" />
@@ -73,7 +72,7 @@
     <Compile Include="ObjectTypes\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\StringUtilities.cs" />
-    <Compile Include="Verbs\Verbs.cs" />
+    <Compile Include="Verbs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
