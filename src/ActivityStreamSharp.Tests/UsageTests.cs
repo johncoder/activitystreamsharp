@@ -15,16 +15,20 @@ namespace ActivityStreamSharp.Tests
             blog.ObjectType = "blog";
             blog.Url = "http://somefarawayserver/blog/johncoder";
 
+            dynamic person = new Person
+                {
+                    DisplayName = "johncoder",
+                    Id = "users/1",
+                    Image = new MediaLink {Height = 50, Width = 50, Url = "http://somefarawayserver/johncoder.png"},
+                    Published = new DateTime(2012, 1, 1),
+                    Updated = new DateTime(2012, 1, 1)
+                };
+
+            person.Tags = new[] {"Person", "Developer", "Employee"};
+
             var activity = new Activity
                 {
-                    Actor = new Person
-                        {
-                            DisplayName = "johncoder",
-                            Id = "users/1",
-                            Image = new MediaLink { Height = 50, Width = 50, Url = "http://somefarawayserver/johncoder.png" },
-                            Published = new DateTime(2012, 1, 1),
-                            Updated = new DateTime(2012, 1, 1)
-                        },
+                    Actor = person,
                     Id = "activity/johncoder/1",
                     Content = "something",
                     Verb = Verbs.Post,
@@ -46,7 +50,7 @@ namespace ActivityStreamSharp.Tests
             var serializer = new ActivityStreamSerializer();
             var result = serializer.Serialize(activity);
 
-            result.ShouldEqual("{\"published\":\"2012-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"person\",\"displayName\":\"johncoder\",\"image\":{\"duration\":0,\"height\":50,\"url\":\"http://somefarawayserver/johncoder.png\",\"width\":50},\"id\":\"users/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\"},\"content\":\"something\",\"id\":\"activity/johncoder/1\",\"object\":{\"objectType\":\"article\",\"content\":\"This is my post\",\"id\":\"posts/johncoder/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\",\"url\":\"http://somefarawayserver/blogs/johncoder/new-post\"},\"provider\":\"http://somefarawayserver/blogs/johncoder/feed\",\"target\":{\"objectType\":\"blog\",\"url\":\"http://somefarawayserver/blog/johncoder\"},\"title\":\"John posted a new article to his blog.\",\"url\":\"http://somefarawayserver/blogs/johncoder\",\"verb\":\"post\"}");
+            result.ShouldEqual("{\"published\":\"2012-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"person\",\"displayName\":\"johncoder\",\"image\":{\"objectType\":\"medialink\",\"duration\":0,\"height\":50,\"url\":\"http://somefarawayserver/johncoder.png\",\"width\":50},\"id\":\"users/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\",\"tags\":[\"Person\",\"Developer\",\"Employee\"]},\"content\":\"something\",\"id\":\"activity/johncoder/1\",\"object\":{\"objectType\":\"article\",\"content\":\"This is my post\",\"id\":\"posts/johncoder/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\",\"url\":\"http://somefarawayserver/blogs/johncoder/new-post\"},\"provider\":\"http://somefarawayserver/blogs/johncoder/feed\",\"target\":{\"objectType\":\"blog\",\"url\":\"http://somefarawayserver/blog/johncoder\"},\"title\":\"John posted a new article to his blog.\",\"url\":\"http://somefarawayserver/blogs/johncoder\",\"verb\":\"post\"}");
         }
 
         [TestMethod]
@@ -95,7 +99,16 @@ namespace ActivityStreamSharp.Tests
             var serializer = new ActivityStreamSerializer();
             var result = serializer.Serialize(activity);
 
-            result.ShouldEqual("{\"published\":\"2012-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"person\",\"displayName\":\"johncoder\",\"image\":{\"duration\":0,\"height\":50,\"url\":\"http://somefarawayserver/johncoder.png\",\"width\":50},\"id\":\"users/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\"},\"content\":\"something\",\"id\":\"activity/johncoder/1\",\"object\":{\"objectType\":\"article\",\"content\":\"This is my post\",\"id\":\"posts/johncoder/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\",\"url\":\"http://somefarawayserver/blogs/johncoder/new-post\"},\"provider\":\"http://somefarawayserver/blogs/johncoder/feed\",\"target\":{\"objectType\":\"collection\",\"objectTypes\":[\"person\"],\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\",\"items\":[{\"objectType\":\"person\",\"displayName\":\"Steve\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"},{\"objectType\":\"person\",\"displayName\":\"Todd\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"},{\"objectType\":\"person\",\"displayName\":\"Jason\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"}],\"totalItems\":3},\"title\":\"John shared an article with people.\",\"url\":\"http://somefarawayserver/blogs/johncoder\",\"verb\":\"share\"}");
+            result.ShouldEqual("{\"published\":\"2012-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"person\",\"displayName\":\"johncoder\",\"image\":{\"objectType\":\"medialink\",\"duration\":0,\"height\":50,\"url\":\"http://somefarawayserver/johncoder.png\",\"width\":50},\"id\":\"users/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\"},\"content\":\"something\",\"id\":\"activity/johncoder/1\",\"object\":{\"objectType\":\"article\",\"content\":\"This is my post\",\"id\":\"posts/johncoder/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\",\"url\":\"http://somefarawayserver/blogs/johncoder/new-post\"},\"provider\":\"http://somefarawayserver/blogs/johncoder/feed\",\"target\":{\"objectType\":\"collection\",\"objectTypes\":[\"person\"],\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\",\"items\":[{\"objectType\":\"person\",\"displayName\":\"Steve\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"},{\"objectType\":\"person\",\"displayName\":\"Todd\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"},{\"objectType\":\"person\",\"displayName\":\"Jason\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"}],\"totalItems\":3},\"title\":\"John shared an article with people.\",\"url\":\"http://somefarawayserver/blogs/johncoder\",\"verb\":\"share\"}");
+        }
+
+        [TestMethod]
+        public void Activity_can_be_deserialized_with_a_complicated_structure()
+        {
+            var serializer = new ActivityStreamSerializer();
+            var activity = serializer.Deserialize("{\"published\":\"2012-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"person\",\"displayName\":\"johncoder\",\"image\":{\"objectType\":\"medialink\",\"duration\":0,\"height\":50,\"url\":\"http://somefarawayserver/johncoder.png\",\"width\":50},\"id\":\"users/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\"},\"content\":\"something\",\"id\":\"activity/johncoder/1\",\"object\":{\"objectType\":\"article\",\"content\":\"This is my post\",\"id\":\"posts/johncoder/1\",\"published\":\"2012-01-01T05:00:00Z\",\"updated\":\"2012-01-01T05:00:00Z\",\"url\":\"http://somefarawayserver/blogs/johncoder/new-post\"},\"provider\":\"http://somefarawayserver/blogs/johncoder/feed\",\"target\":{\"objectType\":\"collection\",\"objectTypes\":[\"person\"],\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\",\"items\":[{\"objectType\":\"person\",\"displayName\":\"Steve\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"},{\"objectType\":\"person\",\"displayName\":\"Todd\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"},{\"objectType\":\"person\",\"displayName\":\"Jason\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"}],\"totalItems\":3},\"title\":\"John shared an article with people.\",\"url\":\"http://somefarawayserver/blogs/johncoder\",\"verb\":\"share\"}");
+
+            activity.Id.ShouldEqual("activity/johncoder/1");
         }
 
         [TestMethod]

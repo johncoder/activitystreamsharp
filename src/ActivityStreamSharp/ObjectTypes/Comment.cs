@@ -16,6 +16,6 @@ namespace ActivityStreamSharp.ObjectTypes
         public DateTime Updated { get; set; }
 
         [JsonProperty("ObjectType")]
-        public readonly string ObjectTypeKey = "comment";
+        public static readonly string ObjectTypeKey = "comment";
     }
 }

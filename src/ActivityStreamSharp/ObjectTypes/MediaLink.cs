@@ -1,10 +1,16 @@
-﻿namespace ActivityStreamSharp.ObjectTypes
+﻿using System;
+using Newtonsoft.Json;
+
+namespace ActivityStreamSharp.ObjectTypes
 {
     public class MediaLink : ForgivingExpandoObject
     {
-        public int Duration { get; set; }
-        public int Height { get; set; }
+        public long Duration { get; set; }
+        public long Height { get; set; }
         public string Url { get; set; }
-        public int Width { get; set; }
+        public long Width { get; set; }
+
+        [JsonProperty("ObjectType")]
+        public static readonly string ObjectTypeKey = "medialink";
     }
 }

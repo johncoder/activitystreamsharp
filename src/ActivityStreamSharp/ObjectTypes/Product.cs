@@ -18,6 +18,6 @@ namespace ActivityStreamSharp.ObjectTypes
         public string Url { get; set; }
 
         [JsonProperty("ObjectType")]
-        public readonly string ObjectTypeKey = "product";
+        public static readonly string ObjectTypeKey = "product";
     }
 }

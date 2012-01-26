@@ -19,6 +19,6 @@ namespace ActivityStreamSharp.ObjectTypes
         public int TotalItems { get; set; }
 
         [JsonProperty("ObjectType")]
-        public readonly string ObjectTypeKey = "collection";
+        public static readonly string ObjectTypeKey = "collection";
     }
 }

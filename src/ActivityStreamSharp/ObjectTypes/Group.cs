@@ -12,6 +12,6 @@ namespace ActivityStreamSharp.ObjectTypes
         public DateTime Updated { get; set; }
         public string Url { get; set; }
         [JsonProperty("ObjectType")]
-        public readonly string ObjectTypeKey = "group";
+        public static readonly string ObjectTypeKey = "group";
     }
 }

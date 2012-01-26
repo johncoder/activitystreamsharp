@@ -1,15 +1,40 @@
 using System;
 using System.Collections;
 using System.Linq;
-using ActivityStreamSharp.ObjectTypes;
 using ActivityStreamSharp.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace ActivityStreamSharp.Converters
 {
     public class ObjectTypeConverter : JsonConverter
     {
+        private static IDictionary<string, Type> _objectTypes;
+
+        public IDictionary<string, Type> ObjectTypes
+        {
+            get
+            {
+                if (_objectTypes == null)
+                {
+                    RegisterAllObjectTypes();
+                }
+
+                return _objectTypes;
+            }
+        }
+
+        private void RegisterAllObjectTypes()
+        {
+            _objectTypes = (from type in GetType().Assembly.GetTypes()
+                            where typeof(ForgivingExpandoObject).IsAssignableFrom(type)
+                                  && type.GetFields().Any(m => m.Name == "ObjectTypeKey")
+                            let objectType = (string)type.GetField("ObjectTypeKey").GetValue(null)
+                            select new { objectType, type })
+                           .ToDictionary(k => k.objectType, v => v.type);
+        }
+
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var forgivingExpando = value as ForgivingExpandoObject;
@@ -157,32 +182,28 @@ namespace ActivityStreamSharp.Converters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (reader.ValueType == typeof(string))
+            if (reader.ValueType != null)
                 return reader.Value;
+
+            //if (reader.TokenType == JsonToken.StartObject)
 
             var jObject = JObject.Load(reader);
 
             var currentObjectType = (string)jObject.Property("objectType");
 
-            object objectToPopulate;
-
-            // TODO: Automatically register these subclasses.
-            switch (currentObjectType)
-            {
-                case "person":
-                    objectToPopulate = new Person();
-                    break;
-                case "group":
-                    objectToPopulate = new Group();
-                    break;
-                default:
-                    objectToPopulate = new ForgivingExpandoObject();
-                    break;
-            }
+            object objectToPopulate = GetObjectToPopulate(currentObjectType);
 
             serializer.Populate(jObject.CreateReader(), objectToPopulate);
 
             return objectToPopulate;
+        }
+        
+        private object GetObjectToPopulate(string currentObjectType)
+        {
+            if (string.IsNullOrEmpty(currentObjectType) || !ObjectTypes.ContainsKey(currentObjectType))
+                return new ForgivingExpandoObject();
+
+            return Activator.CreateInstance(ObjectTypes[currentObjectType]);
         }
 
         public override bool CanConvert(Type objectType)
@@ -196,5 +217,4 @@ namespace ActivityStreamSharp.Converters
             return canConvert;
         }
     }
-
 }

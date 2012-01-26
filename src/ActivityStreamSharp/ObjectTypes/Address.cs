@@ -1,4 +1,6 @@
-﻿namespace ActivityStreamSharp.ObjectTypes
+﻿using Newtonsoft.Json;
+
+namespace ActivityStreamSharp.ObjectTypes
 {
     public class Address
     {
@@ -8,5 +10,8 @@
         public string Region { get; set; }
         public string PostalCode { get; set; }
         public string Country { get; set; }
+
+        [JsonProperty("ObjectType")]
+        public static readonly string ObjectTypeKey = "address";
     }
 }
