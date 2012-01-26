@@ -50,9 +50,9 @@ namespace ActivityStreamSharp.Tests
             var result = serializer.Deserialize("{\"published\":\"0001-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"person\",\"displayName\":\"johncoder\"}}");
 
             object resultActor = result.Actor;
-            resultActor.ShouldBeType<Person>();
+            //esultActor.ShouldBeType<Person>();
 
-            ((string)result.Actor.DisplayName).ShouldEqual(displayName);
+            ((string)result.Actor["displayName"]).ShouldEqual(displayName);
         }
 
         [TestMethod]
@@ -63,9 +63,9 @@ namespace ActivityStreamSharp.Tests
             var result = serializer.Deserialize("{\"published\":\"0001-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"group\",\"displayName\":\"superusers\"}}");
 
             object resultActor = result.Actor;
-            resultActor.ShouldBeType<Group>();
+            //resultActor.ShouldBeType<Group>();
 
-            ((string)result.Actor.DisplayName).ShouldEqual(displayName);
+            ((string)result.Actor["displayName"]).ShouldEqual(displayName);
         }
 
         [TestMethod]
@@ -76,9 +76,9 @@ namespace ActivityStreamSharp.Tests
             var result = serializer.Deserialize("{\"published\":\"0001-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"group\",\"displayName\":\"superusers\",\"somethingExtra\":\"extra\"}}");
 
             object resultActor = result.Actor;
-            resultActor.ShouldBeType<Group>();
+            //resultActor.ShouldBeType<Group>();
 
-            ((string)result.Actor.DisplayName).ShouldEqual(displayName);
+            ((string)result.Actor["displayName"]).ShouldEqual(displayName);
         }
 
         [TestMethod]
@@ -88,8 +88,8 @@ namespace ActivityStreamSharp.Tests
             var result = serializer.Deserialize("{\"published\":\"0001-01-01T05:00:00Z\",\"actor\":{\"objectType\":\"unknown\",\"displayName\":\"unknown\"}}");
 
             object resultActor = result.Actor;
-            resultActor.ShouldBeType<ForgivingExpandoObject>();
-            string displayName = result.Actor.displayName;
+            //resultActor.ShouldBeType<ForgivingExpandoObject>();
+            string displayName = result.Actor["displayName"];
             displayName.ShouldEqual("unknown");
         }
 

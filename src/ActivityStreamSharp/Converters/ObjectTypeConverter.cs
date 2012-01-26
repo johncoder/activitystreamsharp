@@ -216,5 +216,10 @@ namespace ActivityStreamSharp.Converters
 
             return canConvert;
         }
+
+        public override bool CanRead
+        {
+            get { return false; }
+        }
     }
 }
