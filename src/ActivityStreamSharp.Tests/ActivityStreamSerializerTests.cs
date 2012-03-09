@@ -123,7 +123,6 @@ namespace ActivityStreamSharp.Tests
             result.ShouldNotBeNull();
         }
 
-        [Ignore]
         [TestMethod]
         public void ActivityStreamSerializer_deserialize_change_value_reserialize_works()
         {

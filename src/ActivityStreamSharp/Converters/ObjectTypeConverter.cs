@@ -41,13 +41,12 @@ namespace ActivityStreamSharp.Converters
 
             if (forgivingExpando == null)
             {
-                if (value is IEnumerable && !(value is string) && !(value is ForgivingExpandoObject))
+                if (value is JArray)
                 {
                     writer.WriteStartArray();
                     foreach (var item in value as IEnumerable)
                     {
-                        WriteJson(writer, value, serializer);
-                        //serializer.Serialize(writer, item);
+                        WriteJson(writer, item, serializer);
                     }
                     writer.WriteEndArray();
                 }
@@ -157,7 +156,6 @@ namespace ActivityStreamSharp.Converters
                         foreach (var itemItem in item.Value as IEnumerable)
                         {
                             WriteJson(writer, itemItem, serializer);
-                            //serializer.Serialize(writer, itemItem);
                         }
                         writer.WriteEndArray();
                     }
@@ -190,8 +188,6 @@ namespace ActivityStreamSharp.Converters
         {
             if (reader.ValueType != null)
                 return reader.Value;
-
-            //if (reader.TokenType == JsonToken.StartObject)
 
             var jObject = JObject.Load(reader);
 
