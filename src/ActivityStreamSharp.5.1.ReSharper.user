@@ -8,31 +8,31 @@
   </SettingsComponent>
   <CompletionStatisticsManager>
     <ItemStatistics item="Default">
-      <Item value="public" priority="199" />
+      <Item value="public" priority="203" />
       <Item value="ICollection" priority="3" />
       <Item value="interface" priority="1" />
       <Item value="List" priority="1" />
       <Item value="ActivityStream`0" priority="4" />
-      <Item value="class" priority="25" />
+      <Item value="class" priority="26" />
       <Item value="DateTime`0" priority="29" />
-      <Item value="dynamic" priority="14" />
-      <Item value="string" priority="105" />
+      <Item value="dynamic" priority="15" />
+      <Item value="string" priority="107" />
       <Item value="ctor" priority="1" />
       <Item value="Items" priority="2" />
-      <Item value="new" priority="41" />
-      <Item value="Activity`0" priority="15" />
+      <Item value="new" priority="44" />
+      <Item value="Activity`0" priority="16" />
       <Item value="int" priority="4" />
-      <Item value="void" priority="15" />
-      <Item value="var" priority="45" />
+      <Item value="void" priority="17" />
+      <Item value="var" priority="49" />
       <Item value="Activity" priority="3" />
       <Item value="AppDomainSetup`0" priority="0" />
       <Item value="enum" priority="0" />
       <Item value="static" priority="0" />
       <Item value="const" priority="9" />
-      <Item value="return" priority="26" />
-      <Item value="null" priority="9" />
+      <Item value="return" priority="27" />
+      <Item value="null" priority="11" />
       <Item value="ActivityStreamSerializerTests`0" priority="2" />
-      <Item value="serializer" priority="21" />
+      <Item value="serializer" priority="22" />
       <Item value="ActivityStream" priority="0" />
       <Item value="JsonConvert`0" priority="1" />
       <Item value="stream" priority="0" />
@@ -40,29 +40,29 @@
       <Item value="private" priority="3" />
       <Item value="JsonSerializerSettings`0" priority="0" />
       <Item value="JsonSerializerSettings" priority="0" />
-      <Item value="result" priority="14" />
+      <Item value="result" priority="15" />
       <Item value="DefaultValueHandling" priority="0" />
       <Item value="DefaultValueHandling`0" priority="0" />
-      <Item value="if" priority="22" />
+      <Item value="if" priority="23" />
       <Item value="_items" priority="0" />
-      <Item value="Newtonsoft" priority="1" />
-      <Item value="Json" priority="2" />
+      <Item value="Newtonsoft" priority="3" />
+      <Item value="Json" priority="4" />
       <Item value="Schema" priority="1" />
       <Item value="Extensions`0" priority="0" />
       <Item value="IsoDateTimeConverter`0" priority="3" />
       <Item value="JsonConverter`0" priority="2" />
-      <Item value="Converters" priority="1" />
+      <Item value="Converters" priority="3" />
       <Item value="List&lt;JsonConverter&gt;" priority="0" />
       <Item value="DateTimeStyles" priority="0" />
       <Item value="input" priority="1" />
       <Item value="_settings" priority="0" />
       <Item value="Title" priority="2" />
-      <Item value="ActivityStreamSerializer`0" priority="3" />
-      <Item value="activity" priority="5" />
+      <Item value="ActivityStreamSerializer`0" priority="4" />
+      <Item value="activity" priority="8" />
       <Item value="Actor" priority="3" />
       <Item value="DisplayName" priority="3" />
       <Item value="using" priority="1" />
-      <Item value="System" priority="0" />
+      <Item value="System" priority="1" />
       <Item value="Dynamic" priority="0" />
       <Item value="type" priority="0" />
       <Item value="output" priority="0" />
@@ -77,10 +77,10 @@
       <Item value="TypeNameHandling`0" priority="0" />
       <Item value="Person`0" priority="4" />
       <Item value="JObject`0" priority="0" />
-      <Item value="reader" priority="3" />
+      <Item value="reader" priority="4" />
       <Item value="jObject" priority="1" />
       <Item value="switch" priority="0" />
-      <Item value="currentObjectType" priority="0" />
+      <Item value="currentObjectType" priority="1" />
       <Item value="case" priority="0" />
       <Item value="object" priority="4" />
       <Item value="objectToPopulate" priority="4" />
@@ -89,7 +89,7 @@
       <Item value="base" priority="2" />
       <Item value="writer" priority="18" />
       <Item value="value" priority="14" />
-      <Item value="true" priority="8" />
+      <Item value="true" priority="9" />
       <Item value="objectType" priority="5" />
       <Item value="p" priority="4" />
       <Item value="resultActor" priority="1" />
@@ -99,7 +99,7 @@
       <Item value="ObjectType" priority="0" />
       <Item value="PropertyName" priority="0" />
       <Item value="readonly" priority="0" />
-      <Item value="ForgivingExpandoObject`0" priority="26" />
+      <Item value="ForgivingExpandoObject`0" priority="27" />
       <Item value="ForgivingExpandoConverter`0" priority="0" />
       <Item value="foreach" priority="3" />
       <Item value="in" priority="3" />
@@ -113,7 +113,7 @@
       <Item value="OrdinalIgnoreCase" priority="0" />
       <Item value="InvariantCultureIgnoreCase" priority="3" />
       <Item value="entry" priority="3" />
-      <Item value="override" priority="1" />
+      <Item value="override" priority="2" />
       <Item value="this" priority="5" />
       <Item value="Any`1" priority="1" />
       <Item value="binder" priority="2" />
@@ -130,7 +130,7 @@
       <Item value="resolver" priority="0" />
       <Item value="Utilities" priority="0" />
       <Item value="propertyValue" priority="4" />
-      <Item value="continue" priority="1" />
+      <Item value="continue" priority="2" />
       <Item value="a" priority="2" />
       <Item value="OfType`1" priority="0" />
       <Item value="newNameAttribute" priority="1" />
@@ -144,7 +144,7 @@
       <Item value="Length" priority="0" />
       <Item value="MediaLink`0" priority="7" />
       <Item value="Collection`0" priority="1" />
-      <Item value="person" priority="1" />
+      <Item value="person" priority="2" />
       <Item value="Process`0" priority="0" />
       <Item value="Group`0" priority="0" />
       <Item value="group" priority="0" />
@@ -167,7 +167,7 @@
       <Item value="Article`0" priority="0" />
       <Item value="blog" priority="2" />
       <Item value="Provider" priority="0" />
-      <Item value="is" priority="3" />
+      <Item value="is" priority="4" />
       <Item value="JsonWriter`0" priority="1" />
       <Item value="WriteJson`0" priority="1" />
       <Item value="BinaryConverter`0" priority="0" />
@@ -175,12 +175,16 @@
       <Item value="IEnumerable`0" priority="0" />
       <Item value="memberValue" priority="0" />
       <Item value="itemItem" priority="0" />
+      <Item value="GetObjectToPopulate`0" priority="0" />
+      <Item value="StartObject" priority="0" />
+      <Item value="CustomCreationConverter" priority="0" />
+      <Item value="Web" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.ICollection`1">
       <Item value="Add`0" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:ActivityStreamSharp.ActivityStreamSerializer">
-      <Item value="Serialize`0" priority="4" />
+      <Item value="Serialize`0" priority="5" />
       <Item value="Deserialize`0" priority="1" />
       <Item value="SerializeStream`0" priority="0" />
     </ItemStatistics>
@@ -197,6 +201,7 @@
       <Item value="ShouldBeSameAs`0" priority="0" />
       <Item value="Equals`0" priority="4" />
       <Item value="ToCamelCase`0" priority="0" />
+      <Item value="ShouldNotBeNull`1" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@Newtonsoft.Json.DefaultValueHandling">
       <Item value="Ignore" priority="0" />
@@ -208,6 +213,8 @@
       <Item value="Title" priority="0" />
       <Item value="Actor" priority="6" />
       <Item value="ShouldNotBeNull`1" priority="0" />
+      <Item value="Object" priority="0" />
+      <Item value="Target" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Object">
       <Item value="ShouldNotBeNull`1" priority="2" />
@@ -252,6 +259,7 @@
     <ItemStatistics item="Qualified:Newtonsoft.Json.JsonReader">
       <Item value="ValueType" priority="0" />
       <Item value="Value" priority="0" />
+      <Item value="TokenType" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:Newtonsoft.Json.Converters.ExpandoObjectConverter">
       <Item value="CanConvert`0" priority="0" />
@@ -265,7 +273,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.KeyValuePair`2">
       <Item value="Key" priority="3" />
-      <Item value="Value" priority="1" />
+      <Item value="Value" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Collections.Generic.IDictionary`2">
       <Item value="Keys" priority="0" />
@@ -336,54 +344,68 @@
   </CompletionStatisticsManager>
   <RecentFiles>
     <RecentFiles>
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Group.cs" caret="118" fromTop="5" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ForgivingExpandoObjectTests.cs" caret="870" fromTop="22" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Utilities/f:StringUtilities.cs" caret="138" fromTop="6" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:ForgivingExpandoDynamicMetaObject.cs" caret="1331" fromTop="32" />
       <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:ForgivingExpando.cs" caret="460" fromTop="15" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ActivityStreamSerializerTests.cs" caret="3668" fromTop="13" />
       <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:IForgivingExpandoObject.cs" caret="0" fromTop="0" />
       <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:ActivityStream.cs" caret="179" fromTop="7" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:MediaLink.cs" caret="63" fromTop="2" />
       <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Verbs.cs" caret="29" fromTop="0" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Person.cs" caret="392" fromTop="13" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:ActivityStreamSerializer.cs" caret="1243" fromTop="29" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Activity.cs" caret="1134" fromTop="14" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="3823" fromTop="30" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Collection.cs" caret="833" fromTop="21" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="4637" fromTop="29" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Audio.cs" caret="667" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Badge.cs" caret="660" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Bookmark.cs" caret="624" fromTop="18" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Collection.cs" caret="797" fromTop="21" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Comment.cs" caret="624" fromTop="18" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Event.cs" caret="918" fromTop="25" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:File.cs" caret="659" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Group.cs" caret="473" fromTop="14" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Image.cs" caret="747" fromTop="21" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Note.cs" caret="564" fromTop="17" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Video.cs" caret="667" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Service.cs" caret="524" fromTop="16" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Question.cs" caret="660" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Product.cs" caret="712" fromTop="20" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Place.cs" caret="412" fromTop="13" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ForgivingExpandoObjectTests.cs" caret="1088" fromTop="34" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Address.cs" caret="488" fromTop="14" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Person.cs" caret="478" fromTop="14" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:MediaLink.cs" caret="293" fromTop="9" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:ActivityStreamSerializer.cs" caret="713" fromTop="3" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="8132" fromTop="24" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Article.cs" caret="660" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Activity.cs" caret="1092" fromTop="0" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="5694" fromTop="9" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ActivityStreamSerializerTests.cs" caret="5534" fromTop="31" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Properties/f:AssemblyInfo.cs" caret="1459" fromTop="35" />
     </RecentFiles>
     <RecentEdits>
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="55" fromTop="2" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Activity.cs" caret="1322" fromTop="24" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="1720" fromTop="29" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="193" fromTop="6" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:ActivityStreamSerializer.cs" caret="870" fromTop="15" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Activity.cs" caret="1134" fromTop="14" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="1720" fromTop="21" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="1133" fromTop="11" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="971" fromTop="19" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="460" fromTop="10" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="1491" fromTop="22" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="3471" fromTop="22" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="885" fromTop="12" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="4044" fromTop="26" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="4490" fromTop="36" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="757" fromTop="11" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="881" fromTop="14" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="2687" fromTop="33" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="2313" fromTop="23" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="4676" fromTop="42" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="5428" fromTop="39" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="602" fromTop="14" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="2533" fromTop="25" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="4425" fromTop="32" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="5158" fromTop="32" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="3225" fromTop="18" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="3837" fromTop="30" />
-      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Collection.cs" caret="833" fromTop="21" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="3114" fromTop="10" />
-      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="4855" fromTop="36" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Question.cs" caret="660" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Service.cs" caret="524" fromTop="16" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Video.cs" caret="667" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:Address.cs" caret="488" fromTop="14" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:MediaLink.cs" caret="419" fromTop="12" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="493" fromTop="14" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="932" fromTop="23" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="1030" fromTop="27" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="2083" fromTop="31" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="8136" fromTop="30" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="6440" fromTop="19" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="7419" fromTop="20" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="62" fromTop="3" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:ObjectTypes/f:MediaLink.cs" caret="293" fromTop="9" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="8594" fromTop="37" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="7322" fromTop="19" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:UsageTests.cs" caret="8123" fromTop="24" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="8276" fromTop="27" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Activity.cs" caret="2103" fromTop="20" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Activity.cs" caret="1568" fromTop="3" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Activity.cs" caret="1088" fromTop="30" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/f:Activity.cs" caret="701" fromTop="21" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="8573" fromTop="38" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ActivityStreamSerializerTests.cs" caret="3729" fromTop="35" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ActivityStreamSerializerTests.cs" caret="3096" fromTop="22" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ActivityStreamSerializerTests.cs" caret="4299" fromTop="34" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ActivityStreamSerializerTests.cs" caret="2509" fromTop="18" />
+      <File id="701C007A-324D-4D20-9473-4FEC798FD4E4/f:ActivityStreamSerializerTests.cs" caret="5626" fromTop="32" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Converters/f:ObjectTypeConverter.cs" caret="5696" fromTop="10" />
+      <File id="EA341F27-3932-4E4C-9EEA-0B8F95B0BB5B/d:Properties/f:AssemblyInfo.cs" caret="1459" fromTop="35" />
     </RecentEdits>
   </RecentFiles>
   <NAntValidationSettings>

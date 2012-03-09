@@ -112,5 +112,26 @@ namespace ActivityStreamSharp.Tests
             result.TotalItems.ShouldEqual(2);
             result.Items.Length.ShouldEqual(2);
         }
+
+        [TestMethod]
+        public void ActivityStreamSerializer_target_with_null_dynamic_property_serializes()
+        {
+            var activity = new Activity();
+            activity.Target = new ForgivingExpandoObject {{"Sum", (string) null}, {"Id", 4}};
+            var serializer = new ActivityStreamSerializer();
+            var result = serializer.Serialize(activity);
+            result.ShouldNotBeNull();
+        }
+
+        [TestMethod]
+        public void ActivityStreamSerializer_deserialize_change_value_reserialize_works()
+        {
+            var serializer = new ActivityStreamSerializer();
+            var result = serializer.Deserialize("{\"published\":\"2012-03-09T19:23:57.345Z\",\"actor\":{\"objectType\":\"person\",\"displayName\":\"John Nelson\",\"id\":\"314\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"},\"object\":{\"objectType\":\"comment\",\"content\":\"Sorry I keep adding all these comments, I can't help it!\",\"id\":\"690\",\"published\":\"2012-03-09T19:23:57.345Z\",\"updated\":\"2012-03-09T19:23:57.345Z\"},\"target\":{\"objectType\":\"video\",\"displayName\":\"PITT v MIAMI\",\"id\":\"304\",\"published\":\"0001-01-01T05:00:00Z\",\"summary\":\"1Mb\",\"updated\":\"0001-01-01T05:00:00Z\"},\"title\":\"John Nelson commented on PITT v MIAMI\",\"verb\":\"post\"}");
+            result.Object.content = "This is something new!";
+
+            var reserialized = serializer.Serialize(result);
+            reserialized.ShouldEqual("{\"published\":\"2012-03-09T19:23:57.345Z\",\"actor\":{\"objectType\":\"person\",\"displayName\":\"John Nelson\",\"id\":\"314\",\"published\":\"0001-01-01T05:00:00Z\",\"updated\":\"0001-01-01T05:00:00Z\"},\"object\":{\"objectType\":\"comment\",\"content\":\"This is something new!\",\"id\":\"690\",\"published\":\"2012-03-09T19:23:57.345Z\",\"updated\":\"2012-03-09T19:23:57.345Z\"},\"target\":{\"objectType\":\"video\",\"displayName\":\"PITT v MIAMI\",\"id\":\"304\",\"published\":\"0001-01-01T05:00:00Z\",\"summary\":\"1Mb\",\"updated\":\"0001-01-01T05:00:00Z\"},\"title\":\"John Nelson commented on PITT v MIAMI\",\"verb\":\"post\"}");
+        }
     }
 }
