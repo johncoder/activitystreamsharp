@@ -103,7 +103,7 @@ namespace ActivityStreamSharp.Converters
 
                 if (propertyValue == null)
                     continue;
-
+                
                 if (!(propertyValue is string) && !propertyValue.GetType().IsValueType)
                 {
                     writer.WritePropertyName(property.Name.ToCamelCase());
@@ -142,6 +142,12 @@ namespace ActivityStreamSharp.Converters
             foreach (var item in forgivingExpando)
             {
                 writer.WritePropertyName(item.Key.ToCamelCase());
+
+                if (item.Value == null)
+                {
+                    serializer.Serialize(writer, item.Value);
+                    continue;
+                }
 
                 if (!(item.Value is string) && !item.Value.GetType().IsValueType)
                 {
