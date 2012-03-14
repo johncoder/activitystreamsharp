@@ -17,6 +17,6 @@ namespace ActivityStreamSharp.ObjectTypes
         public string Summary { get; set; }
 
         [JsonProperty("ObjectType")]
-        public static readonly string ObjectTypeKey = "audio";
+        public static readonly string ObjectTypeKey = Objects.Audio;
     }
 }

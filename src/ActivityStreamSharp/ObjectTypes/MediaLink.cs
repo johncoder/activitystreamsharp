@@ -11,6 +11,6 @@ namespace ActivityStreamSharp.ObjectTypes
         public long Width { get; set; }
 
         [JsonProperty("ObjectType")]
-        public static readonly string ObjectTypeKey = "medialink";
+        public static readonly string ObjectTypeKey = Objects.MediaLink;
     }
 }

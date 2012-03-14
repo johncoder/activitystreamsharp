@@ -51,6 +51,7 @@
     <Compile Include="ForgivingExpando.cs" />
     <Compile Include="ForgivingExpandoDynamicMetaObject.cs" />
     <Compile Include="IForgivingExpandoObject.cs" />
+    <Compile Include="Objects.cs" />
     <Compile Include="ObjectTypes\Address.cs" />
     <Compile Include="ObjectTypes\Article.cs" />
     <Compile Include="ObjectTypes\Audio.cs" />
