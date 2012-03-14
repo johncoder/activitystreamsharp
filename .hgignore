@@ -4,3 +4,4 @@ bin
 obj
 *.csproj.user
 *.suo
+*.ReSharper.user
