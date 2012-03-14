@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <version>1.0.0.0</version>
+    <authors>John Nelson</authors>
+    <owners />
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="4.0.8" />
+    </dependencies>
+    <id>ActivityStreamSharp</id>
+    <title>ActivityStreamSharp</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Uses http://activitystrea.ms/ specification, providing types and serialization functionality.</description>
+    <summary>Provides types and serialization for producing/consuming ActivityStream.</summary>
+  </metadata>
+  <files>
+    <file src="..\..\..\build\ActivityStreamSharp.dll" target="lib\net40\ActivityStreamSharp.dll" />
+    <file src="..\..\..\build\ActivityStreamSharp.pdb" target="lib\net40\ActivityStreamSharp.pdb" />
+  </files>
+</package>
